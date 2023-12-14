@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/authScreen">
+
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.sulitsa.dev.ledgerlink.presentation.home.HomeScreen"
+        android:label="HomeScreen" />
+
+    <fragment
+        android:id="@+id/authScreen"
+        android:name="com.sulitsa.dev.ledgerlink.presentation.auth.AuthScreen"
+        android:label="AuthScreen" >
+        <action
+            android:id="@+id/action_authScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
+    </fragment>
+
+</navigation>

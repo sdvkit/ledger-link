@@ -35,9 +35,16 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+    val navVersion = "2.7.6"
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+
     // Splash screen
     val splashScreenVersion = "1.1.0-alpha02"
     implementation("androidx.core:core-splashscreen:$splashScreenVersion")
