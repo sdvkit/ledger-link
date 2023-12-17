@@ -2,20 +2,20 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/authScreen">
+    app:startDestination="@id/onboardScreen">
 
     <fragment
-        android:id="@+id/homeScreen"
+        android:id="@+id/home_screen"
         android:name="com.sulitsa.dev.ledgerlink.presentation.home.HomeScreen"
         android:label="HomeScreen" />
 
     <fragment
-        android:id="@+id/authScreen"
-        android:name="com.sulitsa.dev.ledgerlink.presentation.auth.AuthScreen"
-        android:label="AuthScreen" >
+        android:id="@+id/onboardScreen"
+        android:name="com.sulitsa.dev.ledgerlink.presentation.onboard.OnboardScreen"
+        android:label="OnboardScreen" >
         <action
-            android:id="@+id/action_authScreen_to_homeScreen"
-            app:destination="@id/homeScreen" />
+            android:id="@+id/action_onboardScreen_to_home_screen"
+            app:destination="@id/home_screen" />
     </fragment>
 
 </navigation>

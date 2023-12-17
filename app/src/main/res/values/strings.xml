@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ledger.link</string>
+    <string name="app_name">ledger.link</string>
+    <string name="onboard_label">Easy search</string>
+    <string name="onboard_description">Quick and easy search for information about accounting accounts</string>
+    <string name="onboard_start_caption">Let\'s get started</string>
 </resources>

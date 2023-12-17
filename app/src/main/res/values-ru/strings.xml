@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ledger.link</string>
+    <string name="onboard_label">Лёгкий поиск</string>
+    <string name="onboard_description">Быстрый и простой поиск информации о бухгалтерских счетах</string>
+    <string name="onboard_start_caption">Приступим</string>
+</resources>

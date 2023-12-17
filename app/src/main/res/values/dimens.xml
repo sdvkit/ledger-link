@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="padding_extra_small">10dp</dimen>
+    <dimen name="padding_small">16dp</dimen>
+    <dimen name="padding_medium">32dp</dimen>
+    <dimen name="padding_big">56dp</dimen>
+
+    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_medium_smaller">16sp</dimen>
+    <dimen name="text_size_medium">20sp</dimen>
+    <dimen name="text_size_big">24sp</dimen>
+
     <dimen name="splash_screen_icon_size">64dp</dimen>
+    <dimen name="onboard_main_image_size">300dp</dimen>
 </resources>
