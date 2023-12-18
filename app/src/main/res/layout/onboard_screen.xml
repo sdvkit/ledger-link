@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/onboardMainImageView"
             android:layout_width="@dimen/onboard_main_image_size"
             android:layout_height="@dimen/onboard_main_image_size"
             android:contentDescription="@null"
@@ -46,7 +46,7 @@
             android:layout_marginTop="@dimen/padding_big"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/onboardMainImageView" />
 
         <TextView
             android:id="@+id/onboardDescriptionTextView"
