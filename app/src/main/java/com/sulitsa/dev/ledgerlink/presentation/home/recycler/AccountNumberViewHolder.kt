@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.sulitsa.dev.ledgerlink.R
+import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
 
 class AccountNumberViewHolder(itemView: View) : ViewHolder(itemView) {
 
@@ -11,6 +12,6 @@ class AccountNumberViewHolder(itemView: View) : ViewHolder(itemView) {
         itemView.findViewById(R.id.accountNumberTextView)
 
     fun bind(accountNumber: AccountNumber) {
-        accountNumberTextView.text = accountNumber.value.toString()
+        accountNumberTextView.text = accountNumber.number.toString()
     }
 }

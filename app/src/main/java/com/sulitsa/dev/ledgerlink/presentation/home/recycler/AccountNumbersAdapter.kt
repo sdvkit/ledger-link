@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.sulitsa.dev.ledgerlink.R
+import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
 
 class AccountNumbersAdapter(
     context: Context
