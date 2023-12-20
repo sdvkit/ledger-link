@@ -40,9 +40,13 @@ android {
 }
 
 dependencies {
-    // Gson
-    val gsonVersion = "2.9.0"
-    implementation("com.squareup.retrofit2:converter-gson:$gsonVersion")
+
+    // Room
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
 
     // Jetpack navigation
     val navVersion = "2.7.6"

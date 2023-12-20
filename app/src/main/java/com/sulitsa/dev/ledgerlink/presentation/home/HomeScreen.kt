@@ -6,17 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sulitsa.dev.ledgerlink.databinding.HomeScreenBinding
-import com.sulitsa.dev.ledgerlink.presentation.Screen
 import com.sulitsa.dev.ledgerlink.presentation.home.recycler.AccountNumbersAdapter
 import com.sulitsa.dev.ledgerlink.presentation.injectDependencies
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HomeScreen : Screen() {
+class HomeScreen : Fragment() {
 
     @Inject
     lateinit var homeViewModel: HomeViewModel
@@ -42,7 +42,10 @@ class HomeScreen : Screen() {
         super.onViewCreated(view, savedInstanceState)
         configureAccountNumbersRecyclerView()
         configureSearchBar()
+        configureState()
+    }
 
+    private fun configureState() {
         lifecycleScope.launch {
             homeViewModel.state.collect { state ->
                 accountNumbersAdapter.submitList(state.searchedAccountNumbers)

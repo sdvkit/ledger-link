@@ -2,9 +2,8 @@ package com.sulitsa.dev.ledgerlink.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
 import com.sulitsa.dev.ledgerlink.domain.usecase.FindAccountNumber
-import com.sulitsa.dev.ledgerlink.domain.usecase.GetAccountNumbersFromJson
+import com.sulitsa.dev.ledgerlink.domain.usecase.ObserveAccountNumbers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -12,8 +11,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(
-    private val getAccountNumbersFromJson: GetAccountNumbersFromJson,
-    private val findAccountNumber: FindAccountNumber
+    private val findAccountNumber: FindAccountNumber,
+    private val observeAccountNumbers: ObserveAccountNumbers
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(HomeState())
@@ -50,13 +49,13 @@ class HomeViewModel @Inject constructor(
 
     private fun getAccountNumbers() {
         viewModelScope.launch {
-            val accountNumbers: List<AccountNumber> = getAccountNumbersFromJson()
-
-            _state.update { currentState ->
-                currentState.copy(
-                    accountNumbers = accountNumbers,
-                    searchedAccountNumbers = accountNumbers
-                )
+            observeAccountNumbers { accountNumbers ->
+                _state.update { currentState ->
+                    currentState.copy(
+                        accountNumbers = accountNumbers,
+                        searchedAccountNumbers = accountNumbers
+                    )
+                }
             }
         }
     }

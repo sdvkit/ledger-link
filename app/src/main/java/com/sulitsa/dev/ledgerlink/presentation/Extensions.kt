@@ -9,7 +9,7 @@ fun Fragment.navigateTo(resId: Int) {
     findNavController().navigate(resId)
 }
 
-fun Screen.injectDependencies() {
+fun Fragment.injectDependencies() {
     val appComponent = (requireActivity().applicationContext as LedgerLinkApp).appComponent
 
     when (this) {

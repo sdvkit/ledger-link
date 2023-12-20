@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.sulitsa.dev.ledgerlink.R
-import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
+import com.sulitsa.dev.ledgerlink.domain.model.AccountNumberWithCorrespondence
 
 class AccountNumbersAdapter(
     context: Context
-) : ListAdapter<AccountNumber, AccountNumberViewHolder>(AccountNumberCallback()) {
+) : ListAdapter<AccountNumberWithCorrespondence, AccountNumberViewHolder>(AccountNumberCallback()) {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 

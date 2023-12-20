@@ -12,4 +12,6 @@
 
     <dimen name="splash_screen_icon_size">64dp</dimen>
     <dimen name="onboard_main_image_size">300dp</dimen>
+
+    <dimen name="favourite_button_size">25dp</dimen>
 </resources>

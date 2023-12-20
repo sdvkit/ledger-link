@@ -26,6 +26,16 @@
         android:textAlignment="textStart"
         android:layout_weight="1"
         android:layout_marginStart="@dimen/padding_small"
-        android:text="Учет кассовых операций" />
+        tools:text="Учет кассовых операций" />
+
+    <CheckBox
+        android:id="@+id/isFavouriteCheckBox"
+        android:layout_width="@dimen/favourite_button_size"
+        android:layout_height="@dimen/favourite_button_size"
+        android:layout_gravity="center|end"
+        android:background="@drawable/favourite_checkbox"
+        android:backgroundTint="?attr/colorPrimary"
+        android:layout_marginStart="@dimen/padding_small"
+        android:button="@null" />
 
 </LinearLayout>
