@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sulitsa.dev.ledgerlink.databinding.HomeScreenBinding
 import com.sulitsa.dev.ledgerlink.presentation.home.recycler.AccountNumbersAdapter
 import com.sulitsa.dev.ledgerlink.presentation.injectDependencies
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -70,7 +71,14 @@ class HomeScreen : Fragment() {
     }
 
     private fun configureAccountNumbersRecyclerView() {
-        accountNumbersAdapter = AccountNumbersAdapter(requireContext())
+        accountNumbersAdapter = AccountNumbersAdapter(
+            context = requireContext(),
+            onItemClicked = { accountNumber -> },
+            onIsFavouriteClicked = { accountNumber ->
+                val event = HomeEvent.UpdateAccountNumber(accountNumber = accountNumber)
+                homeViewModel.onEvent(event)
+            }
+        )
 
         with (binding.accountNumbersRecyclerView) {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)

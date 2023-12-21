@@ -20,7 +20,7 @@ data class AccountNumber(
     val name: String,
 
     @ColumnInfo(name = "is_favourite", typeAffinity = INTEGER)
-    val isFavourite: Boolean
+    var isFavourite: Boolean
 )
 
 data class AccountNumberWithCorrespondence(

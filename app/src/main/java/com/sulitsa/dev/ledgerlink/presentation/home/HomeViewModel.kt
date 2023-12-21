@@ -2,8 +2,12 @@ package com.sulitsa.dev.ledgerlink.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
 import com.sulitsa.dev.ledgerlink.domain.usecase.FindAccountNumber
 import com.sulitsa.dev.ledgerlink.domain.usecase.ObserveAccountNumbers
+import com.sulitsa.dev.ledgerlink.domain.usecase.UpdateAccountNumber
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -12,7 +16,8 @@ import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(
     private val findAccountNumber: FindAccountNumber,
-    private val observeAccountNumbers: ObserveAccountNumbers
+    private val observeAccountNumbers: ObserveAccountNumbers,
+    private val updateAccountNumber: UpdateAccountNumber
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(HomeState())
@@ -31,6 +36,16 @@ class HomeViewModel @Inject constructor(
             is HomeEvent.SearchAccountNumber -> {
                 searchAccountNumbers(event.searchValue)
             }
+
+            is HomeEvent.UpdateAccountNumber -> {
+                updateLocalAccountNumber(event.accountNumber)
+            }
+        }
+    }
+
+    private fun updateLocalAccountNumber(accountNumber: AccountNumber) {
+        CoroutineScope(Dispatchers.IO).launch {
+            updateAccountNumber(accountNumber = accountNumber)
         }
     }
 
