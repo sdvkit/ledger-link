@@ -33,7 +33,7 @@
         android:layout_width="@dimen/favourite_button_size"
         android:layout_height="@dimen/favourite_button_size"
         android:layout_gravity="center|end"
-        android:background="@drawable/favourite_checkbox"
+        android:background="@drawable/checkbox_favourite"
         android:backgroundTint="?attr/colorPrimary"
         android:layout_marginStart="@dimen/padding_small"
         android:button="@null" />

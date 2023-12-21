@@ -29,7 +29,7 @@ class OnboardScreen : Fragment() {
 
     private fun setClickListeners() {
         binding.startButton.setOnClickListener {
-            navigateTo(resId = R.id.action_onboardScreen_to_home_screen)
+            navigateTo(resId = R.id.action_onboardScreen_to_homeScreen)
         }
     }
 }

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="launcher_icon_size">45dp</dimen>
+    <dimen name="launcher_background_size">100dp</dimen>
+
     <dimen name="padding_extra_small">10dp</dimen>
     <dimen name="padding_small">16dp</dimen>
     <dimen name="padding_medium">32dp</dimen>
@@ -14,4 +17,7 @@
     <dimen name="onboard_main_image_size">300dp</dimen>
 
     <dimen name="favourite_button_size">25dp</dimen>
+
+    <dimen name="bottom_nav_bar_height">60dp</dimen>
+    <dimen name="bottom_nav_bar_item_size">24dp</dimen>
 </resources>

@@ -24,7 +24,7 @@
             android:text="@string/app_name"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="@dimen/text_size_medium_smaller"
-            android:fontFamily="@font/inter_bold"/>
+            android:fontFamily="@font/inter_bold" />
 
         <EditText
             android:id="@+id/searchBarEditText"
@@ -51,9 +51,22 @@
         android:layout_height="0dp"
         android:padding="@dimen/padding_small"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/bottom_nav_bar_height"
+        android:background="?attr/colorSurfaceVariant"
+        app:itemIconSize="@dimen/bottom_nav_bar_item_size"
+        app:itemIconTint="?attr/colorOnSurfaceVariant"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/nav_bar_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

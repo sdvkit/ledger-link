@@ -5,17 +5,36 @@
     app:startDestination="@id/onboardScreen">
 
     <fragment
-        android:id="@+id/home_screen"
-        android:name="com.sulitsa.dev.ledgerlink.presentation.home.HomeScreen"
-        android:label="HomeScreen" />
-
-    <fragment
         android:id="@+id/onboardScreen"
         android:name="com.sulitsa.dev.ledgerlink.presentation.onboard.OnboardScreen"
-        android:label="OnboardScreen" >
+        android:label="OnboardScreen">
         <action
-            android:id="@+id/action_onboardScreen_to_home_screen"
-            app:destination="@id/home_screen" />
+            android:id="@+id/action_onboardScreen_to_homeScreen"
+            app:destination="@id/homeScreen"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/onboardScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.sulitsa.dev.ledgerlink.presentation.home.HomeScreen"
+        android:label="HomeScreen" >
+        <action
+            android:id="@+id/action_homeScreen_to_favouriteScreen"
+            app:destination="@id/favouriteScreen"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/homeScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favouriteScreen"
+        android:name="com.sulitsa.dev.ledgerlink.presentation.favourite.FavouriteScreen"
+        android:label="FavouriteScreen" >
+        <action
+            android:id="@+id/action_favouriteScreen_to_homeScreen"
+            app:destination="@id/homeScreen"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/favouriteScreen" />
     </fragment>
 
 </navigation>

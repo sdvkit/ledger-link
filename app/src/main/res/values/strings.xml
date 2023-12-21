@@ -5,4 +5,6 @@
     <string name="onboard_description">Quick and easy search for information about accounting accounts</string>
     <string name="onboard_start_caption">Let\'s get started</string>
     <string name="search">Search</string>
+    <string name="home">Home</string>
+    <string name="favourite">Favourite</string>
 </resources>

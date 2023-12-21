@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sulitsa.dev.ledgerlink.databinding.HomeScreenBinding
@@ -34,7 +36,7 @@ class HomeScreen : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = HomeScreenBinding.inflate(layoutInflater)
+        binding = HomeScreenBinding.inflate(inflater)
         return binding.root
     }
 
@@ -43,6 +45,13 @@ class HomeScreen : Fragment() {
         configureAccountNumbersRecyclerView()
         configureSearchBar()
         configureState()
+        configureNavigationBar()
+    }
+
+    private fun configureNavigationBar() {
+        val navController = findNavController()
+        val bottomNavigationView = binding.bottomNavigationView
+        NavigationUI.setupWithNavController(bottomNavigationView, navController)
     }
 
     private fun configureState() {
