@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sulitsa.dev.ledgerlink.LedgerLinkApp
 import com.sulitsa.dev.ledgerlink.presentation.home.HomeScreen
+import com.sulitsa.dev.ledgerlink.presentation.info.AccountNumberInfoScreen
 
 fun Fragment.navigateTo(resId: Int, args: Bundle? = null) {
     findNavController().navigate(resId, args)
@@ -19,6 +20,10 @@ fun Fragment.injectDependencies() {
 
     when (this) {
         is HomeScreen -> {
+            appComponent.inject(this)
+        }
+
+        is AccountNumberInfoScreen -> {
             appComponent.inject(this)
         }
     }

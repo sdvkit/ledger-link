@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
 import com.sulitsa.dev.ledgerlink.domain.usecase.FindAccountNumber
 import com.sulitsa.dev.ledgerlink.domain.usecase.ObserveAccountNumbers
-import com.sulitsa.dev.ledgerlink.domain.usecase.SerializeAccountNumberToString
+import com.sulitsa.dev.ledgerlink.domain.usecase.serialization.SerializeAccountNumberToString
 import com.sulitsa.dev.ledgerlink.domain.usecase.UpdateAccountNumber
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

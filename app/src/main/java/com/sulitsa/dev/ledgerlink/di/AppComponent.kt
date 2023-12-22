@@ -4,6 +4,7 @@ import com.sulitsa.dev.ledgerlink.di.module.ContextModule
 import com.sulitsa.dev.ledgerlink.di.module.DatabaseModule
 import com.sulitsa.dev.ledgerlink.di.module.RepositoryModule
 import com.sulitsa.dev.ledgerlink.presentation.home.HomeScreen
+import com.sulitsa.dev.ledgerlink.presentation.info.AccountNumberInfoScreen
 import dagger.Component
 import javax.inject.Singleton
 
@@ -15,4 +16,5 @@ import javax.inject.Singleton
 ])
 interface AppComponent {
     fun inject(homeScreen: HomeScreen)
+    fun inject(homeScreen: AccountNumberInfoScreen)
 }

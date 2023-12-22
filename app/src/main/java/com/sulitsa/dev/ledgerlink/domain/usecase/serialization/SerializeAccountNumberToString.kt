@@ -1,4 +1,4 @@
-package com.sulitsa.dev.ledgerlink.domain.usecase
+package com.sulitsa.dev.ledgerlink.domain.usecase.serialization
 
 import com.google.gson.Gson
 import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
