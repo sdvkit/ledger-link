@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- common components -->
+    <dimen name="favourite_button_size">25dp</dimen>
+    <dimen name="info_screen_default_icon_button_size">32dp</dimen>
+
+    <!-- launcher-icon -->
     <dimen name="launcher_icon_size">45dp</dimen>
     <dimen name="launcher_background_size">100dp</dimen>
 
+    <!-- paddings -->
     <dimen name="padding_extra_small">10dp</dimen>
     <dimen name="padding_small">16dp</dimen>
     <dimen name="padding_medium">32dp</dimen>
     <dimen name="padding_big">56dp</dimen>
 
+    <!-- text-size -->
     <dimen name="text_size_small">10sp</dimen>
     <dimen name="text_size_medium_smaller">16sp</dimen>
     <dimen name="text_size_medium">18sp</dimen>
     <dimen name="text_size_big">24sp</dimen>
 
+    <!-- splash and onboard screens -->
     <dimen name="splash_screen_icon_size">64dp</dimen>
     <dimen name="onboard_main_image_size">300dp</dimen>
 
-    <dimen name="favourite_button_size">25dp</dimen>
-
+    <!-- bottom navigation bar -->
     <dimen name="bottom_nav_bar_height">60dp</dimen>
     <dimen name="bottom_nav_bar_item_size">24dp</dimen>
 </resources>

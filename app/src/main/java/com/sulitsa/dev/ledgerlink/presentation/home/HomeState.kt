@@ -4,5 +4,6 @@ import com.sulitsa.dev.ledgerlink.domain.model.AccountNumberWithCorrespondence
 
 data class HomeState(
     val accountNumbers: List<AccountNumberWithCorrespondence> = listOf(),
-    val searchedAccountNumbers: List<AccountNumberWithCorrespondence> = accountNumbers
+    val searchedAccountNumbers: List<AccountNumberWithCorrespondence> = accountNumbers,
+    val lastSerializedAccountNumber: String = ""
 )

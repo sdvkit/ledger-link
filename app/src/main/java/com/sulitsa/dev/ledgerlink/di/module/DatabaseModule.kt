@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.sulitsa.dev.ledgerlink.data.local.DatabaseClient
 import com.sulitsa.dev.ledgerlink.data.local.dao.AccountNumberDao
-import com.sulitsa.dev.ledgerlink.util.DatabaseUtils
+import com.sulitsa.dev.ledgerlink.util.Constants
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -20,9 +20,9 @@ class DatabaseModule {
         .databaseBuilder(
             context = context,
             klass = DatabaseClient::class.java,
-            name = DatabaseUtils.DB_NAME
+            name = Constants.DB_NAME
         )
-        .createFromAsset(DatabaseUtils.DB_FILE_PATH)
+        .createFromAsset(Constants.DB_FILE_PATH)
         .build()
 
     @Provides

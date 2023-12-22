@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
 import com.sulitsa.dev.ledgerlink.domain.usecase.FindAccountNumber
 import com.sulitsa.dev.ledgerlink.domain.usecase.ObserveAccountNumbers
+import com.sulitsa.dev.ledgerlink.domain.usecase.SerializeAccountNumberToString
 import com.sulitsa.dev.ledgerlink.domain.usecase.UpdateAccountNumber
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +18,8 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val findAccountNumber: FindAccountNumber,
     private val observeAccountNumbers: ObserveAccountNumbers,
-    private val updateAccountNumber: UpdateAccountNumber
+    private val updateAccountNumber: UpdateAccountNumber,
+    private val serializeAccountNumberToString: SerializeAccountNumberToString
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(HomeState())
@@ -39,6 +41,20 @@ class HomeViewModel @Inject constructor(
 
             is HomeEvent.UpdateAccountNumber -> {
                 updateLocalAccountNumber(event.accountNumber)
+            }
+
+            is HomeEvent.SerializeAccountNumber -> {
+                serializeAccountNumber(event.accountNumber)
+            }
+        }
+    }
+
+    private fun serializeAccountNumber(accountNumber: AccountNumber) {
+        viewModelScope.launch {
+            val serializedAccountNumber = serializeAccountNumberToString(accountNumber = accountNumber)
+
+            _state.update { currentState ->
+                currentState.copy(lastSerializedAccountNumber = serializedAccountNumber)
             }
         }
     }

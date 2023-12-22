@@ -12,10 +12,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.sulitsa.dev.ledgerlink.R
 import com.sulitsa.dev.ledgerlink.databinding.HomeScreenBinding
+import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
 import com.sulitsa.dev.ledgerlink.presentation.home.recycler.AccountNumbersAdapter
 import com.sulitsa.dev.ledgerlink.presentation.injectDependencies
-import kotlinx.coroutines.coroutineScope
+import com.sulitsa.dev.ledgerlink.presentation.navigateTo
+import com.sulitsa.dev.ledgerlink.util.Constants
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -73,10 +76,11 @@ class HomeScreen : Fragment() {
     private fun configureAccountNumbersRecyclerView() {
         accountNumbersAdapter = AccountNumbersAdapter(
             context = requireContext(),
-            onItemClicked = { accountNumber -> },
+            onItemClicked = { accountNumber ->
+                onAccountNumberItemClicked(accountNumber)
+            },
             onIsFavouriteClicked = { accountNumber ->
-                val event = HomeEvent.UpdateAccountNumber(accountNumber = accountNumber)
-                homeViewModel.onEvent(event)
+                onIsFavouriteButtonClicked(accountNumber)
             }
         )
 
@@ -84,5 +88,23 @@ class HomeScreen : Fragment() {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             adapter = accountNumbersAdapter
         }
+    }
+
+    private fun onIsFavouriteButtonClicked(accountNumber: AccountNumber) {
+        val event = HomeEvent.UpdateAccountNumber(accountNumber = accountNumber)
+        homeViewModel.onEvent(event)
+    }
+
+    private fun onAccountNumberItemClicked(accountNumber: AccountNumber) {
+        navigateTo(
+            resId = R.id.action_homeScreen_to_accountNumberInfoScreen,
+            args = Bundle().apply {
+                val event = HomeEvent.SerializeAccountNumber(accountNumber = accountNumber)
+                homeViewModel.onEvent(event)
+
+                val serializedAccountNumber = homeViewModel.state.value.lastSerializedAccountNumber
+                putString(Constants.ACCOUNT_NUMBER_PARAM, serializedAccountNumber)
+            }
+        )
     }
 }

@@ -24,6 +24,9 @@
             app:destination="@id/favouriteScreen"
             app:popUpToInclusive="true"
             app:popUpTo="@id/homeScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_accountNumberInfoScreen"
+            app:destination="@id/accountNumberInfoScreen" />
     </fragment>
 
     <fragment
@@ -35,6 +38,14 @@
             app:destination="@id/homeScreen"
             app:popUpToInclusive="true"
             app:popUpTo="@id/favouriteScreen" />
+        <action
+            android:id="@+id/action_favouriteScreen_to_accountNumberInfoScreen"
+            app:destination="@id/accountNumberInfoScreen" />
     </fragment>
+
+    <fragment
+        android:id="@+id/accountNumberInfoScreen"
+        android:name="com.sulitsa.dev.ledgerlink.presentation.info.AccountNumberInfoScreen"
+        android:label="AccountNumberInfoScreen" />
 
 </navigation>
