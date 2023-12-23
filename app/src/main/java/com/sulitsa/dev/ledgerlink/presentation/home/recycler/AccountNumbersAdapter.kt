@@ -11,7 +11,7 @@ import com.sulitsa.dev.ledgerlink.domain.model.AccountNumberWithCorrespondence
 
 class AccountNumbersAdapter(
     context: Context,
-    private val onItemClicked: (AccountNumber) -> Unit,
+    private val onItemClicked: (AccountNumberWithCorrespondence) -> Unit,
     private val onIsFavouriteClicked: (AccountNumber) -> Unit
 ) : ListAdapter<AccountNumberWithCorrespondence, AccountNumberViewHolder>(AccountNumberCallback()) {
 

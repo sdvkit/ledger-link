@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sulitsa.dev.ledgerlink.R
 import com.sulitsa.dev.ledgerlink.databinding.HomeScreenBinding
 import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
+import com.sulitsa.dev.ledgerlink.domain.model.AccountNumberWithCorrespondence
 import com.sulitsa.dev.ledgerlink.presentation.home.recycler.AccountNumbersAdapter
 import com.sulitsa.dev.ledgerlink.presentation.injectDependencies
 import com.sulitsa.dev.ledgerlink.presentation.navigateTo
@@ -95,7 +96,7 @@ class HomeScreen : Fragment() {
         homeViewModel.onEvent(event)
     }
 
-    private fun onAccountNumberItemClicked(accountNumber: AccountNumber) {
+    private fun onAccountNumberItemClicked(accountNumber: AccountNumberWithCorrespondence) {
         navigateTo(
             resId = R.id.action_homeScreen_to_accountNumberInfoScreen,
             args = Bundle().apply {

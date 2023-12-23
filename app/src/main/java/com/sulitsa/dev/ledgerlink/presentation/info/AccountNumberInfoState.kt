@@ -1,7 +1,7 @@
 package com.sulitsa.dev.ledgerlink.presentation.info
 
-import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
+import com.sulitsa.dev.ledgerlink.domain.model.AccountNumberWithCorrespondence
 
 data class AccountNumberInfoState(
-    val lastDeserializedAccountNumber: AccountNumber? = null
+    val lastDeserializedAccountNumber: AccountNumberWithCorrespondence? = null
 )

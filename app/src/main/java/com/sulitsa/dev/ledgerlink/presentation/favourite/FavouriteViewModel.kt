@@ -1,4 +1,4 @@
-package com.sulitsa.dev.ledgerlink.presentation.home
+package com.sulitsa.dev.ledgerlink.presentation.favourite
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,8 +6,8 @@ import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
 import com.sulitsa.dev.ledgerlink.domain.model.AccountNumberWithCorrespondence
 import com.sulitsa.dev.ledgerlink.domain.usecase.FindAccountNumber
 import com.sulitsa.dev.ledgerlink.domain.usecase.ObserveAccountNumbers
-import com.sulitsa.dev.ledgerlink.domain.usecase.serialization.SerializeAccountNumberToString
 import com.sulitsa.dev.ledgerlink.domain.usecase.UpdateAccountNumber
+import com.sulitsa.dev.ledgerlink.domain.usecase.serialization.SerializeAccountNumberToString
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,35 +16,35 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(
+class FavouriteViewModel @Inject constructor(
     private val findAccountNumber: FindAccountNumber,
     private val observeAccountNumbers: ObserveAccountNumbers,
     private val updateAccountNumber: UpdateAccountNumber,
     private val serializeAccountNumberToString: SerializeAccountNumberToString
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(HomeState())
-    val state: StateFlow<HomeState> = _state
+    private val _state = MutableStateFlow(FavouriteState())
+    val state: StateFlow<FavouriteState> = _state
 
     init {
-        onEvent(HomeEvent.GetAccountNumbers)
+        onEvent(FavouriteEvent.GetAccountNumbers)
     }
 
-    fun onEvent(event: HomeEvent) {
+    fun onEvent(event: FavouriteEvent) {
         when (event) {
-            is HomeEvent.GetAccountNumbers -> {
+            is FavouriteEvent.GetAccountNumbers -> {
                 getAccountNumbers()
             }
 
-            is HomeEvent.SearchAccountNumber -> {
+            is FavouriteEvent.SearchAccountNumber -> {
                 searchAccountNumbers(event.searchValue)
             }
 
-            is HomeEvent.UpdateAccountNumber -> {
+            is FavouriteEvent.UpdateAccountNumber -> {
                 updateLocalAccountNumber(event.accountNumber)
             }
 
-            is HomeEvent.SerializeAccountNumber -> {
+            is FavouriteEvent.SerializeAccountNumber -> {
                 serializeAccountNumber(event.accountNumber)
             }
         }
@@ -84,11 +84,19 @@ class HomeViewModel @Inject constructor(
             observeAccountNumbers { accountNumbers ->
                 _state.update { currentState ->
                     currentState.copy(
-                        accountNumbers = accountNumbers,
-                        searchedAccountNumbers = accountNumbers
+                        accountNumbers = filterAccountNumbers(accountNumbers = accountNumbers),
+                        searchedAccountNumbers = filterAccountNumbers(accountNumbers = accountNumbers)
                     )
                 }
             }
+        }
+    }
+
+    private fun filterAccountNumbers(
+        accountNumbers: List<AccountNumberWithCorrespondence>
+    ): List<AccountNumberWithCorrespondence> {
+        return accountNumbers.filter { accountNumberWithCorrespondence ->
+            accountNumberWithCorrespondence.accountNumber.isFavourite
         }
     }
 }

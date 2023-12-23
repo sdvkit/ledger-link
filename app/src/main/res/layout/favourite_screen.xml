@@ -2,16 +2,71 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="?attr/colorSurface">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FAVOURITE"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:padding="@dimen/padding_small"
+            android:text="@string/app_name"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_size_medium_smaller"
+            android:fontFamily="@font/inter_bold" />
+
+        <EditText
+            android:id="@+id/searchBarEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_search_20"
+            android:hint="@string/search"
+            android:autofillHints="name"
+            android:padding="@dimen/padding_extra_small"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:maxLines="1"
+            android:fontFamily="@font/inter_medium"
+            android:background="@drawable/search_bar"
+            android:drawablePadding="@dimen/padding_small"
+            android:layout_marginTop="@dimen/padding_extra_small"
+            android:layout_marginStart="@dimen/padding_extra_small"
+            android:layout_marginEnd="@dimen/padding_extra_small" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/accountNumbersRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/padding_small"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/bottom_nav_bar_height"
+        android:background="?attr/colorSurfaceVariant"
+        app:itemIconSize="@dimen/bottom_nav_bar_item_size"
+        app:itemIconTint="?attr/colorOnSurfaceVariant"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/nav_bar_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

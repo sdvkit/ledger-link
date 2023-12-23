@@ -32,5 +32,5 @@ data class AccountNumberWithCorrespondence(
         parentColumn = "number",
         entityColumn = "account_number"
     )
-    val accountCorrespondence: AccountCorrespondence
+    val accountCorrespondences: List<AccountCorrespondence>
 )

@@ -2,13 +2,12 @@ package com.sulitsa.dev.ledgerlink.presentation.info
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sulitsa.dev.ledgerlink.databinding.AccountNumberInfoScreenBinding
-import com.sulitsa.dev.ledgerlink.domain.model.AccountNumber
+import com.sulitsa.dev.ledgerlink.domain.model.AccountNumberWithCorrespondence
 import com.sulitsa.dev.ledgerlink.presentation.injectDependencies
 import com.sulitsa.dev.ledgerlink.presentation.navigateUp
 import com.sulitsa.dev.ledgerlink.util.Constants
@@ -45,11 +44,11 @@ class AccountNumberInfoScreen : Fragment() {
         val accountNumber = deserializeAccountNumber()
 
         with (binding) {
-            isFavouriteCheckBox.isChecked = accountNumber.isFavourite
+            isFavouriteCheckBox.isChecked = accountNumber.accountNumber.isFavourite
         }
     }
 
-    private fun deserializeAccountNumber(): AccountNumber {
+    private fun deserializeAccountNumber(): AccountNumberWithCorrespondence {
         val serializedAccountNumber = requireArguments().getString(Constants.ACCOUNT_NUMBER_PARAM)!!
         val event = AccountNumberInfoEvent.DeserializeAccountNumber(serializedAccountNumber = serializedAccountNumber)
         accountNumberInfoViewModel.onEvent(event)

@@ -10,7 +10,7 @@ import com.sulitsa.dev.ledgerlink.domain.model.AccountNumberWithCorrespondence
 
 class AccountNumberViewHolder(
     itemView: View,
-    private val onItemClicked: (AccountNumber) -> Unit,
+    private val onItemClicked: (AccountNumberWithCorrespondence) -> Unit,
     private val onIsFavouriteClicked: (AccountNumber) -> Unit
 ) : ViewHolder(itemView) {
 
@@ -29,14 +29,14 @@ class AccountNumberViewHolder(
             accountNumberNameTextView.text = name
             isFavouriteCheckBox.isChecked = isFavourite
 
-            itemView.setOnClickListener {
-                onItemClicked(this)
-            }
-
             isFavouriteCheckBox.setOnCheckedChangeListener { _, isChecked ->
                 isFavourite = isChecked
                 onIsFavouriteClicked(this)
             }
+        }
+
+        itemView.setOnClickListener {
+            onItemClicked(accountNumberWithCorrespondence)
         }
     }
 }

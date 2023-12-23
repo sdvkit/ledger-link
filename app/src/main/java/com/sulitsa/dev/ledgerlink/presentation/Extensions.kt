@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sulitsa.dev.ledgerlink.LedgerLinkApp
+import com.sulitsa.dev.ledgerlink.presentation.favourite.FavouriteScreen
 import com.sulitsa.dev.ledgerlink.presentation.home.HomeScreen
 import com.sulitsa.dev.ledgerlink.presentation.info.AccountNumberInfoScreen
 
@@ -24,6 +25,10 @@ fun Fragment.injectDependencies() {
         }
 
         is AccountNumberInfoScreen -> {
+            appComponent.inject(this)
+        }
+
+        is FavouriteScreen -> {
             appComponent.inject(this)
         }
     }
