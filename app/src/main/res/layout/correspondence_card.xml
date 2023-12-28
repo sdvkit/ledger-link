@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/correspondence_card_background"
+    android:padding="@dimen/padding_small"
+    android:layout_margin="@dimen/padding_extra_small">
+
+    <TextView
+        android:id="@+id/debitLabelTextView"
+        android:layout_width="@dimen/correspondence_card_label_width"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:text="@string/debit"
+        android:textAlignment="center"
+        android:textColor="?attr/colorOnPrimaryContainer"
+        android:textSize="@dimen/text_size_small_bigger"
+        app:layout_constraintEnd_toStartOf="@+id/exchangeImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/debitTextView"
+        android:layout_width="@dimen/correspondence_card_label_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_extra_small"
+        android:fontFamily="@font/inter_bold"
+        android:textAlignment="center"
+        android:textColor="?attr/colorOnPrimaryContainer"
+        android:textSize="@dimen/text_size_medium_smaller"
+        app:layout_constraintEnd_toEndOf="@+id/debitLabelTextView"
+        app:layout_constraintStart_toStartOf="@+id/debitLabelTextView"
+        app:layout_constraintTop_toBottomOf="@+id/debitLabelTextView"
+        tools:text="50.0" />
+
+    <ImageView
+        android:id="@+id/exchangeImageView"
+        android:layout_width="@dimen/correspondence_card_icon_size"
+        android:layout_height="@dimen/correspondence_card_icon_size"
+        android:src="@drawable/ic_exchange_alt_24"
+        app:layout_constraintBottom_toBottomOf="@+id/debitLabelTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/debitLabelTextView" />
+
+    <TextView
+        android:id="@+id/creditLabelTextView"
+        android:layout_width="@dimen/correspondence_card_label_width"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:text="@string/credit"
+        android:textAlignment="center"
+        android:textColor="?attr/colorOnPrimaryContainer"
+        android:textSize="@dimen/text_size_small_bigger"
+        app:layout_constraintBottom_toBottomOf="@+id/exchangeImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/exchangeImageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/creditTextView"
+        android:layout_width="@dimen/correspondence_card_label_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_extra_small"
+        android:fontFamily="@font/inter_bold"
+        android:textAlignment="center"
+        android:textColor="?attr/colorOnPrimaryContainer"
+        android:textSize="@dimen/text_size_medium_smaller"
+        app:layout_constraintEnd_toEndOf="@+id/creditLabelTextView"
+        app:layout_constraintStart_toStartOf="@+id/creditLabelTextView"
+        app:layout_constraintTop_toBottomOf="@+id/debitLabelTextView"
+        tools:text="51.0" />
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_small"
+        android:fontFamily="@font/inter_medium"
+        android:textAlignment="center"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:textSize="@dimen/text_size_medium_smaller"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/debitTextView"
+        tools:text="Описание корреспонденции" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

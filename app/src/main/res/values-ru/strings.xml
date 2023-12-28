@@ -7,4 +7,10 @@
     <string name="search">Поиск</string>
     <string name="home">Главная</string>
     <string name="favourite">Избранное</string>
+    <string name="account_number_value">"Номер счёта: "</string>
+    <string name="account_number_name">"Название: "</string>
+    <string name="correspondence_header">"Корреспонденция счета: "</string>
+    <string name="about_account_number_header">"О счёте: "</string>
+    <string name="debit">Дебет</string>
+    <string name="credit">Кредит</string>
 </resources>

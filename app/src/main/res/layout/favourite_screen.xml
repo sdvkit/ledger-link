@@ -62,7 +62,7 @@
         android:layout_height="@dimen/bottom_nav_bar_height"
         android:background="?attr/colorSurfaceVariant"
         app:itemIconSize="@dimen/bottom_nav_bar_item_size"
-        app:itemIconTint="?attr/colorOnSurfaceVariant"
+        app:itemIconTint="@color/selected_page_tint"
         app:labelVisibilityMode="unlabeled"
         app:menu="@menu/nav_bar_menu"
         app:layout_constraintBottom_toBottomOf="parent"

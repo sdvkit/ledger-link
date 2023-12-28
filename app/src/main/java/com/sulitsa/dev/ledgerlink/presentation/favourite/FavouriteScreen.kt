@@ -97,7 +97,7 @@ class FavouriteScreen : Fragment() {
 
     private fun onAccountNumberItemClicked(accountNumber: AccountNumberWithCorrespondence) {
         navigateTo(
-            resId = R.id.action_homeScreen_to_accountNumberInfoScreen,
+            resId = R.id.action_favouriteScreen_to_accountNumberInfoScreen,
             args = Bundle().apply {
                 val event = FavouriteEvent.SerializeAccountNumber(accountNumber = accountNumber)
                 favouriteViewModel.onEvent(event)

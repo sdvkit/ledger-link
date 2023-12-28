@@ -16,9 +16,12 @@
 
     <!-- text-size -->
     <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_small_bigger">14sp</dimen>
     <dimen name="text_size_medium_smaller">16sp</dimen>
     <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_medium_bigger">20sp</dimen>
     <dimen name="text_size_big">24sp</dimen>
+    <dimen name="text_size_extra_big">32sp</dimen>
 
     <!-- splash and onboard screens -->
     <dimen name="splash_screen_icon_size">64dp</dimen>
@@ -27,4 +30,10 @@
     <!-- bottom navigation bar -->
     <dimen name="bottom_nav_bar_height">60dp</dimen>
     <dimen name="bottom_nav_bar_item_size">24dp</dimen>
+
+    <!-- correspondence card -->
+    <dimen name="correspondence_card_height">200dp</dimen>
+    <dimen name="correspondence_card_radius">30dp</dimen>
+    <dimen name="correspondence_card_label_width">100dp</dimen>
+    <dimen name="correspondence_card_icon_size">20dp</dimen>
 </resources>

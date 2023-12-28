@@ -7,4 +7,10 @@
     <string name="search">Search</string>
     <string name="home">Home</string>
     <string name="favourite">Favourite</string>
+    <string name="account_number_value">"Number: "</string>
+    <string name="account_number_name">"Name: "</string>
+    <string name="correspondence_header">Correspondence:</string>
+    <string name="about_account_number_header">About:</string>
+    <string name="debit">Debit</string>
+    <string name="credit">Credit</string>
 </resources>
