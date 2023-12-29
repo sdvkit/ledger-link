@@ -26,6 +26,7 @@ class AccountNumberInfoScreen : Fragment() {
 
     private lateinit var binding: AccountNumberInfoScreenBinding
     private lateinit var accountCorrespondenceAdapter: AccountCorrespondenceAdapter
+    private lateinit var accountNumberWithCorrespondence: AccountNumberWithCorrespondence
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -88,14 +89,27 @@ class AccountNumberInfoScreen : Fragment() {
 
     private fun deserializeAccountNumber(): AccountNumberWithCorrespondence {
         val serializedAccountNumber = requireArguments().getString(Constants.ACCOUNT_NUMBER_PARAM)!!
+
         val event = AccountNumberInfoEvent.DeserializeAccountNumber(serializedAccountNumber = serializedAccountNumber)
         accountNumberInfoViewModel.onEvent(event)
-        return accountNumberInfoViewModel.state.value.lastDeserializedAccountNumber!!
+
+        accountNumberWithCorrespondence = accountNumberInfoViewModel.state.value.lastDeserializedAccountNumber!!
+        return accountNumberWithCorrespondence
     }
 
     private fun configureButtons() {
-        binding.backButton.setOnClickListener {
-            navigateUp()
+        with (binding) {
+            backButton.setOnClickListener {
+                navigateUp()
+            }
+
+            isFavouriteCheckBox.setOnCheckedChangeListener { _, isChecked ->
+                val accountNumber = accountNumberWithCorrespondence.accountNumber
+                accountNumber.isFavourite = isChecked
+
+                val event = AccountNumberInfoEvent.UpdateAccountNumber(accountNumber = accountNumber)
+                accountNumberInfoViewModel.onEvent(event)
+            }
         }
     }
 }

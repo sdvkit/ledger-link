@@ -61,7 +61,7 @@ dependencies {
     val splashScreenVersion = "1.1.0-alpha02"
     implementation("androidx.core:core-splashscreen:$splashScreenVersion")
 
-    // Hilt
+    // Dagger
     val daggerVersion = "2.49"
     implementation("com.google.dagger:dagger:$daggerVersion")
     ksp("com.google.dagger:dagger-compiler:$daggerVersion")
