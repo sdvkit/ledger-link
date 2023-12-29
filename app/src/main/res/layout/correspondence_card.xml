@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/correspondence_card_background"
     android:padding="@dimen/padding_small"
-    android:layout_margin="@dimen/padding_extra_small">
+    android:layout_marginVertical="@dimen/padding_extra_small">
 
     <TextView
         android:id="@+id/debitLabelTextView"

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,7 +47,16 @@ class AccountNumberInfoScreen : Fragment() {
         configureViews()
         configureState()
         configureButtons()
+        configureSearchBar()
     }
+
+    private fun configureSearchBar() {
+        binding.searchBarEditText.addTextChangedListener { searchValue ->
+            val event = AccountNumberInfoEvent.SearchAccountCorrespondence(searchValue = searchValue.toString())
+            accountNumberInfoViewModel.onEvent(event)
+        }
+    }
+
 
     private fun configureAccountCorrespondenceRecyclerView() {
         accountCorrespondenceAdapter = AccountCorrespondenceAdapter(context = requireContext())
@@ -60,7 +70,7 @@ class AccountNumberInfoScreen : Fragment() {
     private fun configureState() {
         lifecycleScope.launch {
             accountNumberInfoViewModel.state.collect { state ->
-                val correspondence = state.lastDeserializedAccountNumber!!.accountCorrespondences
+                val correspondence = state.searchedCorrespondence
                 accountCorrespondenceAdapter.submitList(correspondence)
             }
         }

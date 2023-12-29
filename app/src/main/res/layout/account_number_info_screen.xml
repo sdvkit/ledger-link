@@ -27,7 +27,10 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_medium">
+                android:paddingStart="@dimen/padding_small"
+                android:paddingEnd="@dimen/padding_small"
+                android:paddingTop="@dimen/padding_medium"
+                android:paddingBottom="@dimen/padding_small">
 
                 <TextView
                     android:id="@+id/textView"
@@ -87,6 +90,37 @@
                     app:layout_constraintTop_toTopOf="@+id/accountNumberLabelTextView"
                     tools:text="50.0" />
 
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/correspondence_header"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="@dimen/text_size_medium_bigger"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/accountNumberLabelTextView" />
+
+                <EditText
+                    android:id="@+id/searchBarEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="name"
+                    android:background="@drawable/search_bar"
+                    android:drawableStart="@drawable/ic_search_20"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:drawableTint="?attr/colorOnSurfaceVariant"
+                    android:fontFamily="@font/inter_medium"
+                    android:hint="@string/search"
+                    android:maxLines="1"
+                    android:padding="@dimen/padding_extra_small"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_marginTop="@dimen/padding_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.Toolbar
@@ -124,10 +158,8 @@
         android:id="@+id/correspondenceRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:paddingStart="@dimen/padding_small"
+        android:paddingEnd="@dimen/padding_small"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
