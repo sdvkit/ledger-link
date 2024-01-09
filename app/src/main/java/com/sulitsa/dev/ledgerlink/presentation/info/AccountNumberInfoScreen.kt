@@ -84,6 +84,8 @@ class AccountNumberInfoScreen : Fragment() {
             isFavouriteCheckBox.isChecked = accountNumber.accountNumber.isFavourite
             accountNumberTextView.text = accountNumber.accountNumber.number.toString()
             accountNumberNameTextView.text = accountNumber.accountNumber.name
+            recordTextView.text = accountNumber.accountNumber.record
+            descriptionTextView.text = accountNumber.accountNumber.description
         }
     }
 
